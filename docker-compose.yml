@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+
+  database:
+    image: postgres:16.0
+    container_name: database
+    restart: always
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 2s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      database:
+        condition: service_healthy
+    ports:
+      - "8081:8080"

@@ -1,0 +1,39 @@
+body {
+  height: 100vh;
+  background: rgb(226,221,230);
+  background: linear-gradient(0deg, rgba(226,221,230,1) 0%, rgba(246,208,230,1) 70%, rgba(238,196,186,1) 100%);
+}
+
+.bg {
+  background: rgb(239,238,240);
+  background: linear-gradient(350deg, rgba(239,238,240,1) 0%, rgba(254,242,249,1) 41%, rgba(251,240,238,1) 80%, rgba(255,255,255,1) 100%); 
+}
+
+.fg {
+  color: #342847;
+}
+
+.accent {
+  color: rgb(239,238,240);
+  background: rgb(240,155,176);
+  background: linear-gradient(350deg, rgba(240,155,176,1) 0%, rgba(245,172,132,1) 63%, rgba(244,203,166,1) 100%); 
+}
+
+.text-grad {
+  background: rgb(141,128,238);
+  background: linear-gradient(270deg, rgba(141,128,238,1) 0%, rgba(201,74,176,1) 56%, rgba(252,123,98,1) 100%); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-grad {
+  border-color: rgba(201,74,176,0.2);
+}
+
+.border-grad:focus {
+  border-color: rgba(201,74,176,0.7);
+}
+
+.clear-outline {
+  outline: none;
+}

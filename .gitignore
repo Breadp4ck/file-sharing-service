@@ -1,0 +1,9 @@
+/target
+
+# Frontend
+/frontend/dist
+/frontend/style/tailwind.css
+/frontend/tailwindcss-*
+
+# Backend
+/backend/uploads
