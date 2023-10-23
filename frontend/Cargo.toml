@@ -1,4 +1,5 @@
 [package]
+resolver = "2"
 name = "frontend"
 version = "0.1.0"
 edition = "2021"
@@ -12,7 +13,7 @@ serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.107"
 
 wasm-bindgen = { version = "0.2" }
-web-sys = { version = "0.3", features = ["Navigator", "Window", "Clipboard"] }
+web-sys = { version = "0.3", features = ["Navigator", "Window", "Clipboard", "FileList"] }
 console_log = { version = "1"}
 console_error_panic_hook = { version = "0.1"}
 
@@ -22,5 +23,5 @@ leptos_router = { version = "0.5.1-beta", features = ["csr", "nightly"] }
 
 getrandom = { version = "0.2", features = ["js"] }
 uuid = { version = "1.4.1", features = ["serde", "v4"] }
-reqwest = { version = "0.11.22", features = ["multipart"] }
 chrono = { version = "0.4.31", features = ["serde"] }
+gloo = "0.10.0"
