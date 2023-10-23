@@ -1,11 +1,13 @@
 use std::{net::SocketAddr, path::Path};
 
 use axum::{
+    http::{HeaderValue, Method},
     response::{Html, IntoResponse},
     routing::get,
     Router,
 };
 use model::ModelController;
+use tower_http::cors::{Any, CorsLayer};
 
 mod config;
 mod error;
@@ -62,10 +64,18 @@ async fn main() -> Result<()> {
 
     let routes_api = web::api::routes(mc.clone());
 
+    let cors = CorsLayer::new().allow_origin(Any).allow_methods([
+        Method::GET,
+        Method::POST,
+        Method::PATCH,
+        Method::DELETE,
+    ]);
+
     let app = Router::new()
         .route("/", get(index_page))
         .with_state(mc.clone())
-        .nest("/api", routes_api);
+        .nest("/api", routes_api)
+        .layer(cors);
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 8000));
 
